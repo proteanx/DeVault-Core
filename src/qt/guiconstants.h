@@ -55,7 +55,7 @@ static const int MAX_URI_LENGTH = 255;
 #define SPINNER_FRAMES 36
 
 #define QAPP_ORG_NAME "DeVault"
-#define QAPP_ORG_DOMAIN "devault.org"
+#define QAPP_ORG_DOMAIN "devault.cc"
 #define QAPP_APP_NAME_DEFAULT "DeVault-Qt"
 #define QAPP_APP_NAME_TESTNET "DeVault-Qt-testnet"
 

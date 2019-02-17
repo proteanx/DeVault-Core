@@ -7,7 +7,7 @@ Source: https://github.com/devault/devault
 Files: *
 Copyright: 2009-2016, Bitcoin Core Developers
 License: Expat
-Comment: The DeVault Core Developers encompasses the current developers listed on devault.org,
+Comment: The DeVault Core Developers encompasses the current developers listed on devault.cc,
          as well as the numerous contributors to the project.
 
 Files: debian/*

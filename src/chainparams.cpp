@@ -187,7 +187,7 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
         //vSeeds.push_back(CDNSSeedData("nav.community", "seed.nav.community"));
-        vSeeds.push_back(CDNSSeedData("devault.org", "seed.devault.org"));
+        vSeeds.push_back(CDNSSeedData("devault.cc", "seed.devault.cc"));
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -321,7 +321,7 @@ public:
         }
 
         //vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
-        vSeeds.push_back(CDNSSeedData("testdevault.org", "testseed.devault.org"));
+        vSeeds.push_back(CDNSSeedData("testdevault.cc", "testseed.devault.cc"));
 
         assert(consensus.hashGenesisBlock == hashGenesisBlock);
         assert(genesis.hashMerkleRoot == hashMerkleRoot);
@@ -479,7 +479,7 @@ public:
         }
 
         //vSeeds.push_back(CDNSSeedData("devnav.community", "devseed.nav.community"));
-        vSeeds.push_back(CDNSSeedData("devnet.devault.org", "devseed.devault.org"));
+        vSeeds.push_back(CDNSSeedData("devnet.devault.cc", "devseed.devault.cc"));
 
         assert(consensus.hashGenesisBlock == hashGenesisBlock);
         assert(genesis.hashMerkleRoot == hashMerkleRoot);
@@ -625,7 +625,7 @@ public:
         }
 
         //vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
-        vSeeds.push_back(CDNSSeedData("testdevault.org", "testseed.devault.org"));
+        vSeeds.push_back(CDNSSeedData("testdevault.cc", "testseed.devault.cc"));
 
         consensus.hashGenesisBlock = genesis.GetHash();
 

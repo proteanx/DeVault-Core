@@ -1226,7 +1226,7 @@ void DeVaultGUI::showVotingDialog()
 
     QMessageBox msgBox;
     msgBox.setText(tr("Important network notice."));
-    msgBox.setInformativeText(tr("The Nav Coin Network is currently voting on introducing changes on the consensus protocol. As a participant in our network, we value your input and the decision ultimately is yours. Please cast your vote. <br><br>For more information on the proposal, please visit <a href=\"https://devault.org/community-fund\">this link</a><br><br>Would you like the Nav Coin Network to update the staking rewards to setup a decentralised community fund that will help grow the network?"));
+    msgBox.setInformativeText(tr("The Nav Coin Network is currently voting on introducing changes on the consensus protocol. As a participant in our network, we value your input and the decision ultimately is yours. Please cast your vote. <br><br>For more information on the proposal, please visit <a href=\"https://devault.cc/community-fund\">this link</a><br><br>Would you like the Nav Coin Network to update the staking rewards to setup a decentralised community fund that will help grow the network?"));
     QAbstractButton *myYesButton = msgBox.addButton(tr("Yes"), QMessageBox::YesRole);
     msgBox.addButton(trUtf8("No"), QMessageBox::NoRole);
     msgBox.setIcon(QMessageBox::Question);
@@ -1788,7 +1788,7 @@ void DeVaultGUI::getVotingInfo()
     QSslConfiguration config = QSslConfiguration::defaultConfiguration();
     config.setProtocol(QSsl::TlsV1_2);
     request.setSslConfiguration(config);
-    request.setUrl(QUrl(QString("https://www.devault.org/voting.") + QString::fromStdString(Params().NetworkIDString()) + QString("net.json")));
+    request.setUrl(QUrl(QString("https://www.devault.cc/voting.") + QString::fromStdString(Params().NetworkIDString()) + QString("net.json")));
     request.setHeader(QNetworkRequest::ServerHeader, "application/json");
     reply = manager->get(request);
     connect(manager, SIGNAL(finished(QNetworkReply*)), this,
@@ -1867,7 +1867,7 @@ void DeVaultGUI::updateStakingStatus()
                     cfundProposalsOpen(fFoundPaymentRequest);
                 }
                 if (msgbox.clickedButton()==pButtonInfo) {
-                    QString link = QString("https://devault.org/en/community-fund/");
+                    QString link = QString("https://devault.cc/en/community-fund/");
                     QDesktopServices::openUrl(QUrl(link));
                 }
             }

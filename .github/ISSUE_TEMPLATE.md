@@ -2,7 +2,7 @@
 
 General DeVault questions and/or support requests are best directed to the DeVault Discord or subreddit
 
-For reporting security issues, please read instructions at https://devault.org/en/responsible-disclosure.
+For reporting security issues, please read instructions at https://devault.cc/en/responsible-disclosure.
 
 <!-- Describe the issue -->
 <!--- What behavior did you expect? -->

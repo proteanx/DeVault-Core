@@ -3257,7 +3257,7 @@ UniValue resolveopenalias(const UniValue& params, bool fHelp)
           "1. \"address\"    (string) The OpenAlias address.\n"
           "\nExamples:\n"
           "\nGet information about an OpenAlias address\n"
-          + HelpExampleCli("resolveopenalias", "\"donate@devault.org\"")
+          + HelpExampleCli("resolveopenalias", "\"donate@devault.cc\"")
       );
 
   std::string address = params[0].get_str();

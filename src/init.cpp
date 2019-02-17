@@ -553,8 +553,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/DeVault/devault-core>";
-    const std::string URL_WEBSITE = "<https://devault.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/devaultcrypto/DeVault-Core>";
+    const std::string URL_WEBSITE = "<https://devault.cc>";
     // todo: remove urls from translations on next change
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
             "\n" +
