@@ -173,7 +173,7 @@ public:
 
 	      consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00006a4e3e18c71c6d48ad6c261e2254fa764cf29607a4357c99b712dfbb8e6a"));
+        assert(consensus.hashGenesisBlock == uint256S("0x08c3cc2701c18b54b8c43e84a0812310800527896602ff24df09ed670e7ed0f6"));
         assert(genesis.hashMerkleRoot == uint256S("0xc507eec6ccabfd5432d764afceafba42d2d946594b8a60570cb2358a7392c61a"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,31); // D standard address prefix
@@ -186,7 +186,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("nav.community", "seed.nav.community"));
+        //vSeeds.push_back(CDNSSeedData("nav.community", "seed.nav.community"));
         vSeeds.push_back(CDNSSeedData("devault.org", "seed.devault.org"));
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -301,9 +301,9 @@ public:
         bnProofOfWorkLimit = ~uint256() >> 16;
     
         uint32_t nTimestamp = 1545341312;
-        uint256 hashGenesisBlock = uint256S("0x0000a2ed763c6efc24bbb3ac8d9f1ab9e8f1e7100d5221ad80815cd7b369dc2c");
+        uint256 hashGenesisBlock = uint256S("0x0000c37c5e8565cd1c1533956cb490f08de62eae9649118e2b3f989d71fd77c");
         uint256 hashMerkleRoot = uint256S("0x02128838f2516796eb04f5b3fd143a7786001301dc5ffcfd2b2c687a2864aae9");
-        uint32_t nNonce = 2043585747;
+        uint32_t nNonce = 2043588264;
 	    
         genesis = CreateGenesisBlockTestnet(nTimestamp, nNonce, 0x1d00ffff, 1, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
@@ -320,7 +320,7 @@ public:
             printf("new testnet genesis hash: %s\n", genesis.GetHash().ToString().c_str());
         }
 
-        vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
+        //vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
         vSeeds.push_back(CDNSSeedData("testdevault.org", "testseed.devault.org"));
 
         assert(consensus.hashGenesisBlock == hashGenesisBlock);
@@ -455,9 +455,9 @@ public:
         // 2) Rebuild
         // 3) Launch daemon. It'll calculate the new parameters.
         // 4) Update the following variables with the new values:
-        uint256 hashGenesisBlock = uint256S("0x0000e01b12644af6917e5aada637a609dd9590ad6bdc4828cd8df95258d85c02");
+        uint256 hashGenesisBlock = uint256S("0x00006e57c2b08036970a82450ac36882c07e46a2ba967f3d7b30fe20b0c95bab");
         uint256 hashMerkleRoot = uint256S("0x2d9101b87fe7b9deaea41849c1f3bed71e060739147802a238fe968f75ad0fd9");
-        uint32_t nNonce = 2043184832;
+        uint32_t nNonce = 2043202617;
         // 5) Rebuild. Launch daemon.
         // 6) Generate first block using RPC command "./devault-cli generate 1"
 
@@ -478,7 +478,7 @@ public:
             printf("use the new values to update CDevNetParams class in src/chainparams.cpp\n");
         }
 
-        vSeeds.push_back(CDNSSeedData("devnav.community", "devseed.nav.community"));
+        //vSeeds.push_back(CDNSSeedData("devnav.community", "devseed.nav.community"));
         vSeeds.push_back(CDNSSeedData("devnet.devault.org", "devseed.devault.org"));
 
         assert(consensus.hashGenesisBlock == hashGenesisBlock);
@@ -624,7 +624,7 @@ public:
             hashMerkleRoot = genesis.hashMerkleRoot;
         }
 
-        vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
+        //vSeeds.push_back(CDNSSeedData("testnav.community", "testseed.nav.community"));
         vSeeds.push_back(CDNSSeedData("testdevault.org", "testseed.devault.org"));
 
         consensus.hashGenesisBlock = genesis.GetHash();
