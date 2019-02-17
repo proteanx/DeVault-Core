@@ -6,7 +6,7 @@ set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
 unset(Qt5Enables)
-foreach(comp Widgets Core Gui Network LinguistTools DBus Qml Quick QuickControls2 QuickWidgets PrintSupport)
+foreach(comp Widgets Core Gui Network LinguistTools DBus PrintSupport)
   find_package(Qt5${comp})
   set(Qt5Enables "${Qt5Enables};Qt5${comp}_FOUND")
   if(Qt5${comp}_FOUND)
@@ -58,15 +58,12 @@ set(GUI_FORMS
   
 QT5_WRAP_UI( UI_HEADERS ${GUI_FORMS})
 
-
-find_package(Protobuf REQUIRED)
-include_directories(${include_directories} ${PROTOBUF_INCLUDE_DIRS})
 include_directories(${include_directories} ${CMAKE_CURRENT_BINARY_DIR})
 
-PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS paymentrequest.proto)
 
 SET(QT_FILES
 	../script/standard.cpp
+  ../rpc/client.cpp
 	devaultaddressvalidator.cpp
 	devaultamountfield.cpp
 	devaultgui.cpp
@@ -104,8 +101,6 @@ SET(QT_FILES
 	editaddressdialog.cpp
 	openuridialog.cpp
 	overviewpage.cpp
-	paymentrequestplus.cpp
-	paymentserver.cpp
 	receivecoinsdialog.cpp
 	receiverequestdialog.cpp
 	recentrequeststablemodel.cpp
@@ -133,7 +128,7 @@ add_library(mac_stuff
 set_property(TARGET mac_stuff PROPERTY CXX_STANDARD 11)
 endif()
 
-ADD_LIBRARY(qt_stuff ${QT_FILES} ${PROTO_SRCS} ${PROTO_HDRS} ${UI_HEADERS})
+ADD_LIBRARY(qt_stuff ${QT_FILES} ${UI_HEADERS})
 
 set_property(TARGET qt_stuff PROPERTY CXX_STANDARD 11)
 
@@ -183,6 +178,7 @@ SET(QT_TRANSLATIONS_FILES
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_hu.ts
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_id_ID.ts
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_it.ts
+	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_it_IT.ts
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_ja.ts
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_ka.ts
 	${CMAKE_CURRENT_SOURCE_DIR}/locale/devault_kk_KZ.ts
@@ -242,9 +238,9 @@ add_dependencies(devault-qt translations_target)
 #set_source_files_properties(devault.cpp PROPERTIES CMAKE_CXX_FLAGS "-std=c++11")
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  TARGET_LINK_LIBRARIES(devault-qt coin qt_stuff mac_stuff ${BDBXX_LIBRARY} ${BDB_LIBRARY} secp256k1 zerocoin unbound curl leveldb ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES} ${ANL} ${PROTOBUF_LIBRARIES} qrencode miniupnpc zmq gmp event event_pthreads pthread "-framework Cocoa")
+  TARGET_LINK_LIBRARIES(devault-qt coin qt_stuff mac_stuff ${BDBXX_LIBRARY} ${BDB_LIBRARY} secp256k1 zerocoin unbound curl leveldb ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES} ${ANL} qrencode miniupnpc zmq gmp event event_pthreads pthread "-framework Cocoa")
 else()
-  TARGET_LINK_LIBRARIES(devault-qt coin qt_stuff ${BDBXX_LIBRARY} ${BDB_LIBRARY} secp256k1 leveldb zerocoin unbound curl ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES} ${ANL} ${PROTOBUF_LIBRARIES} gmp qrencode pthread )
+  TARGET_LINK_LIBRARIES(devault-qt coin qt_stuff ${BDBXX_LIBRARY} ${BDB_LIBRARY} secp256k1 leveldb zerocoin unbound curl ${OPENSSL_LIBRARIES} ${Boost_LIBRARIES} ${ANL} qrencode miniupnpc zmq gmp event event_pthreads pthread)
 endif()
 QT5_USE_Modules(devault-qt Gui)
 QT5_USE_Modules(devault-qt Core)
@@ -252,9 +248,6 @@ QT5_USE_Modules(devault-qt Widgets)
 QT5_USE_Modules(devault-qt Test)
 QT5_USE_Modules(devault-qt PrintSupport)
 QT5_USE_Modules(devault-qt Network)
-QT5_USE_Modules(devault-qt Quick)
-QT5_USE_Modules(devault-qt QuickWidgets)
-QT5_USE_Modules(devault-qt QuickControls2)
 if (Qt5DBus_FOUND)
   QT5_USE_Modules(devault-qt DBus)
 endif()

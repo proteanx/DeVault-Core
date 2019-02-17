@@ -391,13 +391,6 @@ libzerocoin_libdevault_zerocoin_a_SOURCES = \
   libzerocoin/SerialNumberSoK_small.cpp \
   libzerocoin/SerialNumberProofOfKnowledge.cpp
 
-if USE_NUM_GMP
-libzerocoin_libdevault_zerocoin_a_SOURCES += libzerocoin/bignum_gmp.cpp
-endif
-if USE_NUM_OPENSSL
-libzerocoin_libdevault_zerocoin_a_SOURCES += libzerocoin/bignum_openssl.cpp
-endif
-
 libzerocoin_libdevault_zerocoin_a_LIBADD = $(LIBSECP256K1)
 libzerocoin_libdevault_zerocoin_a_CPPFLAGS = $(AM_CPPFLAGS) -I$(srcdir)/secp256k1/include $(SSL_CFLAGS)
 libzerocoin_libdevault_zerocoin_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -553,10 +546,6 @@ if HARDEN
 	@echo "Checking binary security..."
 	$(AM_V_at) READELF=$(READELF) OBJDUMP=$(OBJDUMP) $(top_srcdir)/contrib/devtools/security-check.py < $(bin_PROGRAMS)
 endif
-
-%.pb.cc %.pb.h: %.proto
-	@test -f $(PROTOC)
-	$(AM_V_GEN) $(PROTOC) --cpp_out=$(@D) --proto_path=$(<D) $<
 
 if EMBEDDED_LEVELDB
 include Makefile.leveldb.include
